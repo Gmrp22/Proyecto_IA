@@ -1,14 +1,72 @@
 from gi.repository import Gtk
+import numpy as np
+import os
+from keras.preprocessing.image import load_img, img_to_array
+import keras 
+from keras.utils import CustomObjectScope
+from keras.initializers import glorot_uniform
 
-    
-def seleccionar(button):
-    print('seleccionar')
-    
+
 def seleccionar_foto(button):
     selector.show_all()
 
+
+def predict(file):
+    x = load_img(file, target_size=(longitud, altura))
+    x = img_to_array(x)
+    x = np.expand_dims(x, axis=0)
+    arreglo = cnn.predict(x) #[[1, 0 , 0]]
+    resultado = arreglo[0]
+    respuesta = np.argmax(resultado)
+    if respuesta == 0:
+        print("fresa")
+    elif respuesta ==1:
+        print("otro")
+    return respuesta
+
+
+    
+def seleccionar(button):
+    archivo = selector.get_filename()
+    etiqueta_nombre_archivo = builder.get_object("etiqueta_nombre_archivo")
+    etiqueta_nombre_archivo.set_text(archivo)
+    selector.hide()
+    x = load_img(archivo, target_size=(longitud, altura))
+    x = img_to_array(x)
+    x = np.expand_dims(x, axis=0)
+    array = cnn.predict(x)
+    result = array[0]
+    answer = np.argmax(result)
+    es_fresa = builder.get_object("etiqueta_es_fresa")
+    etapa = builder.get_objcet("etiqueta_etapa")
+    edad = builder.get_object("etiqueta_edad")
+    if answer < 5:
+        etapa.set_text("SI")
+        if answer == 0:
+            etapa.set_text("Estolon")
+            edad.set_text("0")
+        if answer == 1:
+            etapa.set_text("Flor")
+            edad.set_text("0")
+        if answer == 2:
+            etapa.set_text("Fruto")
+            edad.set_text("0")
+        if answer == 3:
+            etapa.set_text("Hija")
+            edad.set_text("0")
+        if answer == 4:
+            etapa.set_text("Hojas/Recuperacion")
+            edad.set_text("0")
+    else:
+        etapa.set_text("NO")
+        etapa.set_text("N/A")
+        edad.set_text("N/A")
+            
+            
+        
 def cancelar(button):
-    print('cancelar')
+    selector.hide()
+    
 def cambiar_blanco(button):
     encabezado = builder.get_object("img_head")
     img_boton = builder.get_object("img_boton")
@@ -49,8 +107,8 @@ builder = Gtk.Builder()
 builder.add_from_file("./interfaz.glade")
 handlers = {
     "terminar_aplicacion": Gtk.main_quit,
-    "seleccionar": seleccionar,
     "seleccionar_archivo": seleccionar_foto,
+    "seleccionar": seleccionar,
     "cancelar": cancelar,
     "cambiar_blanco": cambiar_blanco,
     "cambiar_negro": cambiar_negro
@@ -62,5 +120,13 @@ filtro = Gtk.FileFilter.new()
 filtro.set_name("imagenes(.jpg, .png, .jpeg)")
 filtro.add_pattern("*.[jpg][png][jpeg]")
 selector.set_filter(filtro)
+longitud = 150
+altura = 150
+modelo = './modelo/modelo.h5'
+pesos = './modelo/pesos.h5'
+# with CustomObjectScope({'GlorotUniform': glorot_uniform}):
+    # cnn = keras.models.load_model('./modelo/modelo.h5', compile= False)
+cnn = keras.models.load_model(modelo)
+cnn.load_weights (pesos)
 window.show_all()
 Gtk.main()
