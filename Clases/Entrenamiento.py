@@ -1,21 +1,55 @@
-from tensorflow.keras import backend as Backend
+import sys
+import os
+from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.python.keras import optimizers
+from tensorflow.python.keras.models import Sequential
+from tensorflow.python.keras.layers import Dropout, Flatten, Dense, Activation
+from tensorflow.python.keras.layers import  Convolution2D, MaxPooling2D
+from tensorflow.python.keras import backend as Back
 
-#ATRIBUTOS
-No_epocas=20
-longitud= 150
-altura = 150 #100
+
+Back.clear_session()
+
+
+
+Datos_entrenamiento = './Imagenes/Entrenamiento'
+Datos_validacion = './Imagenes/Validacion'
+
+
+epocas=20
+longitud, altura = 150, 150 #100
 batch_size = 32
-No_pasos = 50
-Pasos_validacion = 300 #200
-Filtro_C1 = 32
-Filtro_C2 = 64
-Tam_filtro1 = (3, 3)
-Tam_filtro2 = (2, 2)
-Tam_pool = (2, 2)
+pasos = 50
+Pasos_validacion= 300 #200
+filtrosConv1 = 32
+filtrosConv2 = 64
+Size_filtro1 = (3, 3)
+Size_filtro2 = (2, 2)
+Size_pool = (2, 2)
 clases = 6
+learningRate = 0.0004 #0.0005
 
 
-#METODOS
-def Limpiar_Sesion():
-    Backend.clear_session()
+##Preparamos nuestras imagenes
+
+entrenamiento_datagen = ImageDataGenerator(
+    rescale=1. / 255,
+    shear_range=0.2, #0.3
+    zoom_range=0.2, #0.3
+    horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(
+    rescale=1. / 255)
+
+entrenamiento_generador = entrenamiento_datagen.flow_from_directory(
+    Datos_entrenamiento,
+    target_size=(altura, longitud),
+    batch_size=batch_size,
+    class_mode='categorical')
+
+validacion_generador = test_datagen.flow_from_directory(
+    Datos_validacion,
+    target_size=(altura, longitud),
+    batch_size=batch_size,
+    class_mode='categorical')
 
