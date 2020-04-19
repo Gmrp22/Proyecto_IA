@@ -53,3 +53,14 @@ validacion_generador = test_datagen.flow_from_directory(
     batch_size=batch_size,
     class_mode='categorical')
 
+#RED CONVU
+cnn = Sequential()
+cnn.add(Convolution2D(filtrosConv1, Size_filtro1, padding ="same", input_shape=(longitud, altura, 3), activation='relu'))
+
+
+cnn.add(MaxPooling2D(pool_size=Size_pool))
+
+cnn.add(Convolution2D(filtrosConv2, Size_filtro2, padding ="same"))
+#cnn.add(Convolution2D(filtrosConv2, tamano_filtro2, padding ="same", activation='relu'))
+cnn.add(MaxPooling2D(pool_size=Size_pool))
+#CLASIFICACION
