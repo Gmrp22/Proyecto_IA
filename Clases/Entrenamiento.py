@@ -64,3 +64,30 @@ cnn.add(Convolution2D(filtrosConv2, Size_filtro2, padding ="same"))
 #cnn.add(Convolution2D(filtrosConv2, tamano_filtro2, padding ="same", activation='relu'))
 cnn.add(MaxPooling2D(pool_size=Size_pool))
 #CLASIFICACION
+cnn.add(Flatten())
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(clases, activation='softmax'))
+
+#PARAMETROS PARA OPTIMIZAR
+cnn.compile(loss='categorical_crossentropy',
+            optimizer=optimizers.Adam(lr=learningRate),
+            metrics=['accuracy'])
+
+
+#Correr pasos en epocas y va pasando
+
+cnn.fit_generator(
+    entrenamiento_generador,
+    steps_per_epoch=pasos,
+    epochs=epocas,
+    validation_data=validacion_generador,
+    validation_steps=Pasos_validacion)
+
+#Guardar pesos finales en archivo
+target_dir = './modelo/'
+if not os.path.exists(target_dir):
+    os.mkdir(target_dir)
+cnn.save('./modelo/modelo.h5')
+cnn.save_weights('./modelo/pesos.h5')
+
