@@ -124,8 +124,10 @@ longitud = 150
 altura = 150
 modelo = './modelo/modelo.h5'
 pesos = './modelo/pesos.h5'
+# para usuarios de pyhon 3.8 descomentar el siguiente coigo
 # with CustomObjectScope({'GlorotUniform': glorot_uniform}):
     # cnn = keras.models.load_model('./modelo/modelo.h5', compile= False)
+# y comentar unicamente la siguiente linea
 cnn = keras.models.load_model(modelo)
 cnn.load_weights (pesos)
 window.show_all()

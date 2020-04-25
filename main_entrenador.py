@@ -1,4 +1,20 @@
 from gi.repository import Gtk
+import sys
+import os
+from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras import optimizers
+from tensorflow.python.keras.models import Sequential
+from tensorflow.python.keras.layers import Dropout, Flatten, Dense, Activation
+from tensorflow.python.keras.layers import  Convolution2D, MaxPooling2D
+from tensorflow.python.keras import backend as Back
+import json
+
+
+Back.clear_session()
+
+
+
+
 
 def seleccionar_carpeta_validacion(button):
     seleccionador_datos_val.show_all()
@@ -7,19 +23,117 @@ def seleccionar_carpeta_datos(button):
 def seleccionar_carpeta_guardar(button):
     seleccionador_carpeta_guardar.show_all();
 def entrenar_red(button):
-    print("hola")
+    Datos_entrenamiento = etq_dir_datos.get_text()
+    Datos_validacion = etq_dir_validacion.get_text()
+    Carpeta_destino = etq_ruta_guardar.get_text()
+    epocas= int(ent_numero_epocas.get_text())
+    longitud = int(ent_altura.get_text())
+    altura = int(ent_altura.get_text())
+    batch_size = int(ent_tamano_lote.get_text())
+    pasos = int(ent_no_pasos.get_text())    
+    Pasos_validacion= int(ent_pasos_val.get_text())
+    clases = int(ent_no_categorias.get_text())
+    learningRate = float(ent_lr.get_text())
+    entrenamiento_datagen = ImageDataGenerator(
+        rescale=1. / 255,
+        shear_range=0.2, #0.3
+        zoom_range=0.2, #0.3
+        horizontal_flip=True)
+
+    test_datagen = ImageDataGenerator(
+        rescale=1. / 255)
+    entrenamiento_generador = entrenamiento_datagen.flow_from_directory(
+    Datos_entrenamiento,
+    target_size=(altura, longitud),
+    batch_size=batch_size,
+    class_mode='categorical')
+    
+    validacion_generador = test_datagen.flow_from_directory(
+    Datos_validacion,
+    target_size=(altura, longitud),
+    batch_size=batch_size,
+    class_mode='categorical')
+    
+    cnn = Sequential()
+    cnn.add(Convolution2D(filtrosConv1, Size_filtro1, padding ="same", input_shape=(longitud, altura, 3), activation='relu'))
+
+
+    cnn.add(MaxPooling2D(pool_size=Size_pool))
+
+    cnn.add(Convolution2D(filtrosConv2, Size_filtro2, padding ="same"))
+    #cnn.add(Convolution2D(filtrosConv2, tamano_filtro2, padding ="same", activation='relu'))
+    cnn.add(MaxPooling2D(pool_size=Size_pool))
+    #CLASIFICACION
+
+    cnn.add(Flatten())
+    cnn.add(Dense(256, activation='relu'))
+    cnn.add(Dropout(0.5))
+    cnn.add(Dense(clases, activation='softmax'))
+
+    #PARAMETROS PARA OPTIMIZAR
+    # Para usuarios de pythjonr 3.8 descomentar el siguiente codigo
+    # cnn.compile(loss='categorical_crossentropy',
+    #             optimizer=optimizers.Adam(learning_rate=learningRate),
+    #             metrics=['accuracy'])
+    # y comentar el siguietne codigo de cnn.compile
+    cnn.compile(loss='categorical_crossentropy',
+            optimizer=optimizers.Adam(lr=learningRate),
+            metrics=['accuracy'])
+
+
+    #Correr pasos en epocas y va pasando
+
+    cnn.fit_generator(
+        entrenamiento_generador,
+        steps_per_epoch=pasos,
+        epochs=epocas,
+        validation_data=validacion_generador,
+        validation_steps=Pasos_validacion)
+
+    #Guardar pesos finales en archivo
+    
+    if not os.path.exists(Carpeta_destino):
+        os.mkdir(Carpeta_destino)
+    save_modelo = Carpeta_destino + "/modelo.h5"
+    cnn.save(save_modelo)
+    save_pesos = Carpeta_destino + "/pesos.h5"
+    cnn.save_weights(save_pesos)
+    configuraciones = {}
+    configuraciones['valores'] = []
+    configuraciones['valores'].append({
+            'altura' : altura,
+            'longitud' : longitud,
+            'batch_size': batch_size,
+            'pasos': pasos,
+            'validacion': Pasos_validacion,
+            'learningRate': learningRate,
+            'clases': clases,
+            'epocas': epocas
+            
+    })
+    guaradr_json = Carpeta_destino + "/configuraciones.json"
+    with open(guaradr_json, 'w') as file:
+        json.dump(configuraciones, file, indent=4)
+
 def seleccionar_datos_val(button):
-    print("hola")
+    Datos_validacion = seleccionador_datos_val.get_current_folder()
+    etq_dir_validacion.set_text(Datos_validacion)
+    seleccionador_datos_val.hide()
 def cancelar_datos_val(button):
     seleccionador_datos_val.hide()
 def seleccionar_datos(button):
-    print("hola")
+    Datos_entrenamiento = seleccionador_dato.get_current_folder()
+    etq_dir_datos.set_text(Datos_entrenamiento)
+    seleccionador_dato.hide()
 def cancelar_datos(button):
     seleccionador_dato.hide()
 def cancelar_carpeta_guardar(button):
     seleccionador_carpeta_guardar.hide()
 def guardar_carpeta_guardar(button):
-    print("hola")
+    Carpeta_destino = seleccionador_carpeta_guardar.get_current_folder()
+    Carpeta_destino = Carpeta_destino + "/modelo"
+    etq_ruta_guardar.set_text(Carpeta_destino)
+    seleccionador_carpeta_guardar.hide()
 def cambiar_blanco(button):
     heading = builder.get_object("header")
     separador = builder.get_object("separador")
@@ -135,16 +249,33 @@ ent_tamano_lote = builder.get_object("entrada_tamano_lote")
 etq_dir_validacion = builder.get_object("etiqueta_dir_validacion")
 etq_dir_datos = builder.get_object("etiqueta_dir_datos")
 etq_ruta_guardar = builder.get_object("etiqueta_ruta_guardar")
-ent_altura.set_text(str(150))
-ent_ancho.set_text(str(150))
-ent_numero_epocas.set_text(str(20))
-ent_no_pasos.set_text(str(50))
-ent_pasos_val.set_text(str(50))
-ent_no_categorias.set_text(str(6))
-ent_lr.set_text(str(0.0004))
-ent_tamano_lote.set_text(str(32))
-etq_dir_datos.set_text("./Imagenes/Entrenamiento")
-etq_dir_validacion.set_text("./Imagenes/Validacion")
-etq_ruta_guardar.set_text("./Modelo")
+
+Datos_entrenamiento = './Imagenes/Entrenamiento'
+Datos_validacion = './Imagenes/Validacion'
+Carpeta_destino = './modelo'
+epocas=20
+longitud, altura = 150, 150 #100
+batch_size = 32
+pasos = 50
+Pasos_validacion= 300 #200
+filtrosConv1 = 32
+filtrosConv2 = 64
+Size_filtro1 = (3, 3)
+Size_filtro2 = (2, 2)
+Size_pool = (2, 2)
+clases = 6
+learningRate = 0.0004 #0.0005
+
+ent_altura.set_text(str(altura))
+ent_ancho.set_text(str(longitud))
+ent_numero_epocas.set_text(str(epocas))
+ent_no_pasos.set_text(str(pasos))
+ent_pasos_val.set_text(str(Pasos_validacion))
+ent_no_categorias.set_text(str(clases))
+ent_lr.set_text(str(learningRate))
+ent_tamano_lote.set_text(str(batch_size))
+etq_dir_datos.set_text(Datos_entrenamiento)
+etq_dir_validacion.set_text(Datos_validacion)
+etq_ruta_guardar.set_text(Carpeta_destino)
 window.show_all()
 Gtk.main()
