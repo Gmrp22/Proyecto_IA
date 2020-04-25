@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkFileChooserDialog" id="seleccionador_carpeta_guardar">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_seleccionar_guardar">
+                <property name="label" translatable="yes">Seleccionar Carpeta</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="guardar_carpeta_guardar" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_cancelar_guardar">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="cancelar_carpeta_guardar" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileChooserDialog" id="seleccionador_dato">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_seleccionar_datos">
+                <property name="label" translatable="yes">Seleccionar Carpeta</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="seleccionar_datos" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_cancelar_datos">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="cancelar_datos" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileChooserDialog" id="seleccionador_datos_val">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_guardar_datos_val">
+                <property name="label" translatable="yes">Seleccionar Carpeta</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="seleccionar_datos_val" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_cancelar_datos_val">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="cancelar_datos_val" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="ventana_principal">
+    <property name="width_request">1200</property>
+    <property name="height_request">950</property>
+    <property name="can_focus">False</property>
+    <signal name="destroy" handler="terminar_aplicacion" swapped="no"/>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="width_request">1200</property>
+        <property name="height_request">950</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkImage" id="header">
+            <property name="width_request">1200</property>
+            <property name="height_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/header_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="separador">
+            <property name="width_request">1200</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/separador_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="titulo_imagen">
+            <property name="width_request">1200</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/titulo_imagenes_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="width_request">1200</property>
+            <property name="height_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_ancho">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/ancho_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_altura">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/altura_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_ancho">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_altura">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_no_categorias">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/numero_categorias_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_no_categorias">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="etiqueta_dir_validacion">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_selec_img_Val">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="seleccionar_carpeta_validacion" swapped="no"/>
+                <child>
+                  <object class="GtkImage" id="img_bot_selc_val">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixbuf">imagenes_entrenar/seleccion_validacion_b.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_selec_img_datos">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="seleccionar_carpeta_datos" swapped="no"/>
+                <child>
+                  <object class="GtkImage" id="img_bot_selc_datos">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixbuf">imagenes_entrenar/seleccion_datos_b.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="etiqueta_dir_datos">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="titulo_entrenamiento">
+            <property name="width_request">1200</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/titulo_entrenamiento_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_no_pasos">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/numero_pasos_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_no_epocas">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/numero_epocas_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_lr">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/lr_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_no_pasos_validacion">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/numero_pasos_validacion_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="img_tamano_lote">
+                <property name="width_request">200</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">imagenes_entrenar/tamano_lote_b.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_no_pasos">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_no_epocas">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_lr">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_pasos_val">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entrada_tamano_lote">
+                <property name="width_request">375</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="titulo_almacenamiento">
+            <property name="width_request">1200</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/titulo_almacenamiento_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="width_request">1200</property>
+            <property name="height_request">150</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_seleccion_guardar">
+                <property name="width_request">1150</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="seleccionar_carpeta_guardar" swapped="no"/>
+                <child>
+                  <object class="GtkImage" id="img_btn_grd">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixbuf">imagenes_entrenar/img_carpeta_grd_arch_b.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="etiqueta_ruta_guardar">
+                <property name="width_request">1150</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_entrenar">
+                <property name="width_request">1150</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="entrenar_red" swapped="no"/>
+                <child>
+                  <object class="GtkImage" id="img_entrenar_cnn">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixbuf">imagenes_entrenar/img_btn_entrenar_cnn_b.png</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="width_request">1200</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="width_request">25</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="cambiar_color_b">
+                <property name="label" translatable="yes">Cambiar letras a blanco</property>
+                <property name="width_request">575</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="cambiar_blanco" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="cambiar_color_n">
+                <property name="label" translatable="yes">Cambiar letras a negro</property>
+                <property name="width_request">600</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="cambiar_negro" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="separado1">
+            <property name="width_request">1200</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/separador_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="footer">
+            <property name="width_request">1200</property>
+            <property name="height_request">90</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">imagenes_entrenar/footer_b.png</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">10</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
