@@ -44,19 +44,19 @@ def seleccionar(button):
         etapa.set_text("SI")
         if answer == 0:
             etapa.set_text("Estolon")
-            edad.set_text("0")
+            edad.set_text("120-146 dias")
         if answer == 1:
             etapa.set_text("Flor")
-            edad.set_text("0")
+            edad.set_text("146-192 dias")
         if answer == 2:
             etapa.set_text("Fruto")
-            edad.set_text("0")
+            edad.set_text("192-220 dias")
         if answer == 3:
             etapa.set_text("Hija")
-            edad.set_text("0")
+            edad.set_text("0-63 dias")
         if answer == 4:
             etapa.set_text("Hojas/Recuperacion")
-            edad.set_text("0")
+            edad.set_text("63-120 dias")
     else:
         etapa.set_text("NO")
         etapa.set_text("N/A")
