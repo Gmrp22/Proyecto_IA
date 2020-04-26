@@ -38,10 +38,10 @@ def seleccionar(button):
     result = array[0]
     answer = np.argmax(result)
     es_fresa = builder.get_object("etiqueta_es_fresa")
-    etapa = builder.get_objcet("etiqueta_etapa")
+    etapa = builder.get_object("etiqueta_etapa")
     edad = builder.get_object("etiqueta_edad")
     if answer < 5:
-        etapa.set_text("SI")
+        es_fresa.set_text("SI")
         if answer == 0:
             etapa.set_text("Estolon")
             edad.set_text("120-146 dias")
