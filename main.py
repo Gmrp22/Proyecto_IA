@@ -59,7 +59,7 @@ def seleccionar(button):
             etapa.set_text("Hojas/Recuperacion")
             edad.set_text("63-120 dias")
     else:
-        etapa.set_text("NO")
+        es_fresa.set_text("NO")
         etapa.set_text("N/A")
         edad.set_text("N/A")
             
