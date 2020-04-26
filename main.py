@@ -1,6 +1,7 @@
 from gi.repository import Gtk
 import numpy as np
 import os
+import json
 from keras.preprocessing.image import load_img, img_to_array
 import keras 
 from keras.utils import CustomObjectScope
@@ -122,6 +123,12 @@ filtro.add_pattern("*.[jpg][png][jpeg]")
 selector.set_filter(filtro)
 longitud = 150
 altura = 150
+with open('./modelo/configuraciones.json') as file:
+    configuracion = json.load(file)
+    for conf in configuracion['valores']:
+        longitud = int(conf['longitud'])
+        altura = int(conf['altura'])
+print(longitud)
 modelo = './modelo/modelo.h5'
 pesos = './modelo/pesos.h5'
 # para usuarios de pyhon 3.8 descomentar el siguiente coigo
